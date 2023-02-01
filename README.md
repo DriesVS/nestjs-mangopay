@@ -4,13 +4,18 @@
   </h3>
 
   <p align="center" width=50 height=50>
-    <img src="https://user-images.githubusercontent.com/11197291/215848127-ffd3248c-f132-4224-9674-56acc39d1513.jpg"/>
+    <img src="https://user-images.githubusercontent.com/11197291/216096444-f44d973e-73b7-4026-9aa9-9c811fd83669.jpg"/>
   </p>
 
   <p align="center">
     Injectable MangoPay client for <a href="https://nestjs.com/">Nestjs</a>.
   </p>
 </p>
+
+[![Release](https://github.com/nabeelhayat/nestjs-mangopay/actions/workflows/create-release.yml/badge.svg)](https://github.com/nabeelhayat/nestjs-mangopay/actions/workflows/create-release.yml)
+[![Publish](https://github.com/nabeelhayat/nestjs-mangopay/actions/workflows/publish.yml/badge.svg)](https://github.com/nabeelhayat/nestjs-mangopay/actions/workflows/publish.yml)[![MIT licensed](https://img.shields.io/github/license/nabeelhayat/nestjs-mangopay)](https://raw.githubusercontent.com/nabeelhayat/nestjs-mangopay/master/LICENSE)
+
+
 
 Implementing the `MangoPayModule` from this package you gain access to MangoPay client through dependency injection with minimal setup.
 
