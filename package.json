@@ -1,5 +1,5 @@
 {
-  "name": "mangopay-nestjs",
+  "name": "nestjs-mangopay",
   "version": "2.0.0",
   "description": "Injectable Mangopay client for Nestjs",
   "license": "MIT",
@@ -7,8 +7,8 @@
     "name": "Nabeel Hayat",
     "email": "nabeel.hayat87@gmail.com"
   },
-  "repository": "https://github.com/nabeelhayat/mangopay-nestjs",
-  "bugs": "https://github.com/nabeelhayat/mangopay-nestjs/issues",
+  "repository": "https://github.com/nabeelhayat/nestjs-mangopay",
+  "bugs": "https://github.com/nabeelhayat/nestjs-mangopay/issues",
   "private": false,
   "keywords": [
     "nestjs",

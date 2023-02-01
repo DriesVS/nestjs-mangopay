@@ -1,6 +1,6 @@
 <p align="center">
   <h3 align="center">
-    mangopay-nestjs
+    nestjs-mangopay
   </h3>
 
   <p align="center" width=50 height=50>
@@ -12,18 +12,16 @@
   </p>
 </p>
 
-[![Publish](https://github.com/nabeelhayat/mangopay-nestjs/actions/workflows/publish.yml/badge.svg)](https://github.com/nabeelhayat/mangopay-nestjs/actions/workflows/publish.yml)
-
 Implementing the `MangoPayModule` from this package you gain access to MangoPay client through dependency injection with minimal setup.
 
 ## Instalation
 
 ```bash
-$ npm install --save mangopay-nestjs
+$ npm install --save nestjs-mangopay
 ```
 
 ```bash
-$ yarn add mangopay-nestjs
+$ yarn add nestjs-mangopay
 ```
 
 ## Getting Started
@@ -31,7 +29,7 @@ $ yarn add mangopay-nestjs
 To use MangoPay client we need to register module for example in app.module.ts
 
 ```typescript
-import { MangoPayModule } from 'mangopay-nestjs';
+import { MangoPayModule } from 'nestjs-mangopay';
 
 @Module({
   imports: [
@@ -47,7 +45,7 @@ export class AppModule {}
 Example usage in service.
 
 ```typescript
-import { MangoPayService } from 'mangopay-nestjs';
+import { MangoPayService } from 'nestjs-mangopay';
 
 @Injectable()
 export class AppService {
@@ -76,4 +74,4 @@ For full Client API see MangoPay Node SDK reference [here](https://github.com/Ma
 
 ## Testing
 
-Example of testing can be found [here](https://github.com/nabeelhayat/mangopay-nestjs/blob/development/lib/__tests__/mangoPay.module.test.ts).
+Example of testing can be found [here](https://github.com/nabeelhayat/nestjs-mangopay/blob/development/lib/__tests__/mangoPay.module.test.ts).

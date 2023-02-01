@@ -28,7 +28,7 @@ Error resulted by the potential bug.
 ## Your Environment
 
 - OS: [e.g. macOS, Windows]
-- Version of mangopay-nestjs: [e.g. v1.0.0]
+- Version of nestjs-mangopay: [e.g. v1.0.0]
 
 ## Error reproducing steps
 
