@@ -1,7 +1,9 @@
-name: Publish to NPM
+name: Github CI - Publish to NPM
+
 on:
   release:
-    types: [created]
+    types:
+      - published
 jobs:
   build:
     runs-on: ubuntu-latest
