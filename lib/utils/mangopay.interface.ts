@@ -1,7 +1,3 @@
-import Mangopay from 'mangopay2-nodejs-sdk';
-
-export default Mangopay;
-
 export interface ExtraConfiguration {
   isGlobal?: boolean;
 }

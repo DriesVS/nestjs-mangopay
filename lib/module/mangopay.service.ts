@@ -1,5 +1,5 @@
+import Mangopay from 'mangopay2-nodejs-sdk';
 import { Inject, Injectable } from '@nestjs/common';
-import Mangopay from '../utils/mangopay.interface';
 import {
   MODULE_OPTIONS_TOKEN,
   OPTIONS_TYPE,
