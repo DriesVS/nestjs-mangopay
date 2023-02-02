@@ -1,6 +1,6 @@
 import MangoPay from 'mangopay2-nodejs-sdk';
 
-export type MangoPayClient = MangoPay;
+export default MangoPay;
 
 export interface ExtraConfiguration {
   isGlobal?: boolean;

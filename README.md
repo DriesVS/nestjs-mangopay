@@ -8,7 +8,7 @@
   </p>
 
   <p align="center">
-    Injectable MangoPay client for <a href="https://nestjs.com/">Nestjs</a>.
+    Injectable MangoPay client for <a href="https://nestjs.com/">Nestjs</a>. Using the Nodejs dependency <a href="https://github.com/Mangopay/mangopay2-nodejs-sdk">mangopay2-nodejs-sdk</a>.
   </p>
 </p>
 
