@@ -30,15 +30,10 @@
   ],
   "scripts": {
     "build:dist": "yarn clean:dist && tsc -p tsconfig.build.json",
-    "test:run": "NODE_ENV=test jest",
-    "test:watch": "yarn test:run --watch",
-    "test:coverage": "yarn clean:test && yarn test:run --coverage",
     "type-check": "tsc --noEmit",
     "lint": "eslint --fix . --ext .js,.ts,.tsx",
     "clean:dist": "rimraf dist",
-    "clean:test": "rimraf coverage",
-    "prepare": "yarn build:dist",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "engines": {
     "npm": "please-use-yarn",
