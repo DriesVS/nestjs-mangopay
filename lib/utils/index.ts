@@ -1,3 +1,3 @@
-export * from './mangoPay.module-definition';
-export * from './mangoPay.interface';
-export * from './mangoPay.utils';
+export * from './mangopay.module-definition';
+export * from './mangopay.interface';
+export * from './mangopay.utils';

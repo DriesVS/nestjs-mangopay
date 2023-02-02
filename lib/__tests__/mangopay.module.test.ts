@@ -1,13 +1,14 @@
 import { Test } from '@nestjs/testing';
-import { MangoPayModule, MangoPayService } from '../module';
-import { OPTIONS_TYPE } from '../utils';
+import { MangopayModule } from '../module/mangopay.module';
+import { MangopayService } from '../module/mangopay.service';
+import { OPTIONS_TYPE } from '../utils/mangopay.module-definition';
 
-describe('MangoPayModule', () => {
+describe('MangopayModule', () => {
   const { MANGOPAY_CLIENT_ID, MANGOPAY_API_KEY, MANGOPAY_API_URL } =
     process.env;
 
   if (!MANGOPAY_CLIENT_ID || !MANGOPAY_API_KEY)
-    throw new Error('No MangoPay Client id or Api key is defined in `.env`!');
+    throw new Error('No Mangopay Client id or Api key is defined in `.env`!');
 
   const config: typeof OPTIONS_TYPE = {
     clientId: MANGOPAY_CLIENT_ID,
@@ -16,22 +17,22 @@ describe('MangoPayModule', () => {
   };
 
   describe('forRoot', () => {
-    let mangoPayService: MangoPayService;
+    let mangopayService: MangopayService;
 
     beforeEach(async () => {
       const module = await Test.createTestingModule({
-        imports: [MangoPayModule.forRoot(config)],
+        imports: [MangopayModule.forRoot(config)],
       }).compile();
 
-      mangoPayService = module.get(MangoPayService);
+      mangopayService = module.get(MangopayService);
     });
 
     it('should provide sentry client', () => {
-      expect(mangoPayService).toBeDefined();
+      expect(mangopayService).toBeDefined();
     });
 
     it('should create a test natural user', async () => {
-      const user = new mangoPayService.client.models.UserNatural({
+      const user = new mangopayService.client.models.UserNatural({
         FirstName: 'Victor',
         LastName: 'Hugo',
         Address: '1 rue des Misérables, Paris',
@@ -46,29 +47,29 @@ describe('MangoPayModule', () => {
         Tag: 'custom tag',
       });
 
-      const response = await mangoPayService.client.Users.create(user);
+      const response = await mangopayService.client.Users.create(user);
 
       return response;
     });
   });
 
   describe('forRootAsync with useFactory', () => {
-    let mangoPayService: MangoPayService;
+    let mangopayService: MangopayService;
 
     beforeEach(async () => {
       const module = await Test.createTestingModule({
-        imports: [MangoPayModule.forRootAsync({ useFactory: () => config })],
+        imports: [MangopayModule.forRootAsync({ useFactory: () => config })],
       }).compile();
 
-      mangoPayService = module.get(MangoPayService);
+      mangopayService = module.get(MangopayService);
     });
 
     it('should provide sentry client', () => {
-      expect(mangoPayService).toBeDefined();
+      expect(mangopayService).toBeDefined();
     });
 
     it('should create a test natural user', async () => {
-      const user = new mangoPayService.client.models.UserNatural({
+      const user = new mangopayService.client.models.UserNatural({
         FirstName: 'Victor',
         LastName: 'Hugo',
         Address: '1 rue des Misérables, Paris',
@@ -83,7 +84,7 @@ describe('MangoPayModule', () => {
         Tag: 'custom tag',
       });
 
-      const response = await mangoPayService.client.Users.create(user);
+      const response = await mangopayService.client.Users.create(user);
 
       return response;
     });
