@@ -1,2 +1,2 @@
-export * from './mangoPay.module';
-export * from './mangoPay.service';
+export * from './mangopay.module';
+export * from './mangopay.service';

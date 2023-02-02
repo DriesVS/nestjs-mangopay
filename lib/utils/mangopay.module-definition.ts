@@ -1,15 +1,15 @@
 import { ConfigurableModuleBuilder } from '@nestjs/common';
 import {
   ExtraConfiguration,
-  MangoPayModuleOptions,
-} from './mangoPay.interface';
+  MangopayModuleOptions,
+} from './mangopay.interface';
 
 export const {
   ConfigurableModuleClass,
   MODULE_OPTIONS_TOKEN,
   OPTIONS_TYPE,
   ASYNC_OPTIONS_TYPE,
-} = new ConfigurableModuleBuilder<MangoPayModuleOptions>()
+} = new ConfigurableModuleBuilder<MangopayModuleOptions>()
   .setExtras<ExtraConfiguration>({ isGlobal: false }, (definition, extras) => ({
     ...definition,
     global: extras.isGlobal,

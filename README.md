@@ -8,7 +8,7 @@
   </p>
 
   <p align="center">
-    Injectable MangoPay client for <a href="https://nestjs.com/">Nestjs</a>. Using the Nodejs dependency <a href="https://github.com/Mangopay/mangopay2-nodejs-sdk">mangopay2-nodejs-sdk</a>.
+    Injectable Mangopay client for <a href="https://nestjs.com/">Nestjs</a>. Using the Nodejs dependency <a href="https://github.com/Mangopay/mangopay2-nodejs-sdk">mangopay2-nodejs-sdk</a>.
   </p>
 </p>
 
@@ -17,7 +17,7 @@
 
 
 
-Implementing the `MangoPayModule` from this package you gain access to MangoPay client through dependency injection with minimal setup.
+Implementing the `MangopayModule` from this package you gain access to Mangopay client through dependency injection with minimal setup.
 
 ## Instalation
 
@@ -31,14 +31,14 @@ $ yarn add nestjs-mangopay
 
 ## Getting Started
 
-To use MangoPay client we need to register module for example in app.module.ts
+To use Mangopay client we need to register module for example in app.module.ts
 
 ```typescript
-import { MangoPayModule } from 'nestjs-mangopay';
+import { MangopayModule } from 'nestjs-mangopay';
 
 @Module({
   imports: [
-    MangoPayModule.forRoot({
+    MangopayModule.forRoot({
       clientId: process.env.MANGOPAY_CLIENT_ID,
       clientApiKey: process.env.MANGOPAY_API_KEY,
       baseUrl: process.env.MANGOPAY_API_URL,
@@ -50,14 +50,14 @@ export class AppModule {}
 Example usage in service.
 
 ```typescript
-import { MangoPayService } from 'nestjs-mangopay';
+import { MangopayService } from 'nestjs-mangopay';
 
 @Injectable()
 export class AppService {
-  public constructor(private readonly mangoPayService: MangoPayService) {}
+  public constructor(private readonly mangopayService: MangopayService) {}
 
   async createUser() {
-    return this.mangoPayService.client.users.create({
+    return this.mangopayService.client.users.create({
       FirstName: 'Victor',
       LastName: 'Hugo',
       Address: '1 rue des Misérables, Paris',
@@ -75,8 +75,8 @@ export class AppService {
 }
 ```
 
-For full Client API see MangoPay Node SDK reference [here](https://github.com/Mangopay/mangopay2-nodejs-sdk)
+For full Client API see Mangopay Node SDK reference [here](https://github.com/Mangopay/mangopay2-nodejs-sdk)
 
 ## Testing
 
-Example of testing can be found [here](https://github.com/nabeelhayat/nestjs-mangopay/blob/development/lib/__tests__/mangoPay.module.test.ts).
+Example of testing can be found [here](https://github.com/nabeelhayat/nestjs-mangopay/blob/master/lib/__tests__/mangoPay.module.test.ts).

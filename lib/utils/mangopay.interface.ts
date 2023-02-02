@@ -1,11 +1,11 @@
-import MangoPay from 'mangopay2-nodejs-sdk';
+import Mangopay from 'mangopay2-nodejs-sdk';
 
-export default MangoPay;
+export default Mangopay;
 
 export interface ExtraConfiguration {
   isGlobal?: boolean;
 }
-export interface MangoPayModuleOptions extends ExtraConfiguration {
+export interface MangopayModuleOptions extends ExtraConfiguration {
   /**
    * API Client Id
    */
