@@ -1,7 +1,7 @@
 {
   "name": "nestjs-mangopay",
-  "version": "3.1.0",
-  "description": "Injectable Mangopay client for Nestjs",
+  "version": "4.0.0",
+  "description": "Injectable Mangopay service for Nestjs",
   "license": "MIT",
   "author": {
     "name": "Nabeel Hayat",

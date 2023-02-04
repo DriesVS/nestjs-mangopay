@@ -14,5 +14,5 @@ export const {
     ...definition,
     global: extras.isGlobal,
   }))
-  .setClassMethodName('forRoot')
+  .setClassMethodName('register')
   .build();

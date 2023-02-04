@@ -21,7 +21,7 @@ describe('MangopayModule', () => {
 
     beforeEach(async () => {
       const module = await Test.createTestingModule({
-        imports: [MangopayModule.forRoot(config)],
+        imports: [MangopayModule.register(config)],
       }).compile();
 
       mangopayService = module.get(MangopayService);
@@ -32,7 +32,7 @@ describe('MangopayModule', () => {
     });
 
     it('should create a test natural user', async () => {
-      const user = new mangopayService.client.models.UserNatural({
+      const user = new mangopayService.models.UserNatural({
         FirstName: 'Victor',
         LastName: 'Hugo',
         Address: '1 rue des Misérables, Paris',
@@ -47,7 +47,7 @@ describe('MangopayModule', () => {
         Tag: 'custom tag',
       });
 
-      const response = await mangopayService.client.Users.create(user);
+      const response = await mangopayService.Users.create(user);
 
       return response;
     });
@@ -58,7 +58,7 @@ describe('MangopayModule', () => {
 
     beforeEach(async () => {
       const module = await Test.createTestingModule({
-        imports: [MangopayModule.forRootAsync({ useFactory: () => config })],
+        imports: [MangopayModule.registerAsync({ useFactory: () => config })],
       }).compile();
 
       mangopayService = module.get(MangopayService);
@@ -69,7 +69,7 @@ describe('MangopayModule', () => {
     });
 
     it('should create a test natural user', async () => {
-      const user = new mangopayService.client.models.UserNatural({
+      const user = new mangopayService.models.UserNatural({
         FirstName: 'Victor',
         LastName: 'Hugo',
         Address: '1 rue des Misérables, Paris',
@@ -84,7 +84,7 @@ describe('MangopayModule', () => {
         Tag: 'custom tag',
       });
 
-      const response = await mangopayService.client.Users.create(user);
+      const response = await mangopayService.Users.create(user);
 
       return response;
     });
