@@ -20,7 +20,7 @@
 </p>
 
 
-Implementing the `MangopayModule` from this package you gain access to Mangopay client through dependency injection with minimal setup.
+Implementing the `MangopayModule` from this package you gain access to Mangopay service through dependency injection with minimal setup.
 
 ## Getting Started
 
@@ -38,14 +38,14 @@ $ npm install --save nestjs-mangopay
 $ yarn add nestjs-mangopay
 ```
 
-To use Mangopay client we need to register module for example in app.module.ts
+To use Mangopay service we need to register module for example in app.module.ts
 
 ```typescript
 import { MangopayModule } from 'nestjs-mangopay';
 
 @Module({
   imports: [
-    MangopayModule.forRoot({
+    MangopayModule.register({
       clientId: process.env.MANGOPAY_CLIENT_ID,
       clientApiKey: process.env.MANGOPAY_API_KEY,
       baseUrl: process.env.MANGOPAY_API_URL,
@@ -54,6 +54,24 @@ import { MangopayModule } from 'nestjs-mangopay';
 })
 export class AppModule {}
 ```
+
+```typescript
+import { MangopayModule } from 'nestjs-mangopay';
+
+@Module({
+  imports: [
+    MangopayModule.registerAsync({
+      userFactory: () => ({
+        clientId: process.env.MANGOPAY_CLIENT_ID,
+        clientApiKey: process.env.MANGOPAY_API_KEY,
+        baseUrl: process.env.MANGOPAY_API_URL,
+      })
+    }),
+  ],
+})
+export class AppModule {}
+```
+
 Example usage in service.
 
 ```typescript
@@ -64,7 +82,7 @@ export class AppService {
   public constructor(private readonly mangopayService: MangopayService) {}
 
   async createUser() {
-    return this.mangopayService.client.users.create({
+    return this.mangopayService.Users.create({
       FirstName: 'Victor',
       LastName: 'Hugo',
       Address: '1 rue des Misérables, Paris',
@@ -82,7 +100,37 @@ export class AppService {
 }
 ```
 
-For full Client API see Mangopay Node SDK reference [here](https://github.com/Mangopay/mangopay2-nodejs-sdk)
+## Services
+* [CardPreAuthorizations](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/CardPreAuthorizations.md)
+* [CardRegistrations](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/CardRegistrations.md)
+* [Cards](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Cards.md)
+* [DisputeDocuments](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/DisputeDocuments.md)
+* [Disputes](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Disputes.md)
+* [Events](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Events.md)
+* [Hooks](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Hooks.md)
+* [KycDocuments](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/KycDocuments.md)
+* [PayIns](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/PayIns.md)
+* [PayOuts](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/PayOuts.md)
+* [Refunds](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Refunds.md)
+* [Responses](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Responses.md)
+* [Transfers](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Transfers.md)
+* [Users](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Users.md)
+* [Wallets](https://github.com/Mangopay/mangopay2-nodejs-sdk/blob/master/docs/Wallets.md)
+
+```typescript
+import { MangopayService } from 'nestjs-mangopay';
+
+@Injectable()
+export class AppService {
+  public constructor(private readonly mangopayService: MangopayService) {}
+
+  async getUsers() {
+    return this.mangopayService.Users.getAll();
+  }
+}
+```
+
+For full Service API see Mangopay Node SDK reference [here](https://github.com/Mangopay/mangopay2-nodejs-sdk)
 
 ## Testing
 

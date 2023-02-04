@@ -1,6 +1,7 @@
 export interface ExtraConfiguration {
   isGlobal?: boolean;
 }
+
 export interface MangopayModuleOptions extends ExtraConfiguration {
   /**
    * API Client Id
